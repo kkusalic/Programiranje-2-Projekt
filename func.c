@@ -18,11 +18,11 @@ void add() {
 	}
 
 	printf("Enter name of artist: ");
-	scanf(" %29[^\n]", musicField->artist);
+	scanf(" %50[^\n]", musicField->artist);
 	printf("Enter name of album: ");
-	scanf(" %29[^\n]", musicField->album);
+	scanf(" %50[^\n]", musicField->album);
 	printf("Enter name of genre: ");
-	scanf(" %29[^\n]", musicField->genre);
+	scanf(" %50[^\n]", musicField->genre);
 	printf("Enter year: ");
 	do {
 
@@ -71,7 +71,7 @@ void add() {
 
 
 
-void alphabSort(MUSIC* musicField, int n) {
+void alphabSort(static MUSIC* musicField, static int n) {
 	int j, i;
 	MUSIC* temp = (MUSIC*)malloc(n * sizeof(MUSIC));
 
@@ -106,7 +106,7 @@ void alphabSort(MUSIC* musicField, int n) {
 void deleteAlbum() {
 	MUSIC* delField = NULL;
 	int n, index, flag = 0;
-	char s[30];
+	char s[51];
 	FILE* fp = fopen("musicfile.bin", "rb");
 	if (fp == NULL) {
 		printf("File empty");
@@ -126,7 +126,7 @@ void deleteAlbum() {
 			fclose(fp);
 
 			printf("Enter the name of the album you want deleted: \n");
-			scanf(" %29[^\n]", s);
+			scanf(" %50[^\n]", s);
 			for (int i = 0; i < n; i++) {
 				if (strcmp((delField + i)->album, s) == 0) {
 					index = i;

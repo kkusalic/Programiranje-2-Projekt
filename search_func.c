@@ -9,7 +9,7 @@
 #include "search.h"
 
 void artistPrint() {
-	char artist[30];
+	char artist[51];
 	int n, i, flag = 0, index = 0;
 
 	FILE* fp = fopen("musicfile.bin", "rb");
@@ -30,7 +30,7 @@ void artistPrint() {
 	}
 
 	printf("Enter artist's name: ");
-	scanf(" %29[^\n]", artist);
+	scanf(" %50[^\n]", artist);
 	printf("\n");
 	fread(fieldSearch, sizeof(MUSIC), n, fp);
 	for (int i = 0; i < n; i++) {
@@ -56,7 +56,7 @@ void artistPrint() {
 }
 
 void genrePrint() {
-	char genre[30];
+	char genre[51];
 	int n, i, flag = 0, index = 0;
 
 	FILE* fp = fopen("musicfile.bin", "rb");
@@ -75,7 +75,7 @@ void genrePrint() {
 		exit(EXIT_FAILURE);
 	}
 	printf("Enter genre name: ");
-	scanf(" %29[^\n]", genre);
+	scanf(" %50[^\n]", genre);
 	printf("\n");
 	fread(fieldSearch, sizeof(MUSIC), n, fp);
 	alphabSort(fieldSearch, n);
@@ -147,7 +147,7 @@ void printAlbum() {
 }
 
 void albumSearch() {
-	char searchedWord[30];
+	char searchedWord[51];
 	int n, i, flag = 0;
 	FILE* fp = fopen("musicfile.bin", "rb");
 	if (fp == NULL) {
@@ -166,7 +166,7 @@ void albumSearch() {
 		exit(EXIT_FAILURE);
 	}
 	printf("Enter album: ");
-	scanf(" %29[^\n]", searchedWord);
+	scanf(" %50[^\n]", searchedWord);
 	fread(fieldSearch, sizeof(MUSIC), n, fp);
 
 	for (int i = 0; i < n; i++) {
@@ -193,7 +193,7 @@ void albumSearch() {
 
 void searchWhole() {
 
-	char search[30];
+	char search[51];
 	int n, i, flag = 0;
 
 	FILE* fp = fopen("musicfile.bin", "rb");
@@ -212,7 +212,7 @@ void searchWhole() {
 		exit(EXIT_FAILURE);
 	}
 	printf("Enter searched word: ");
-	scanf(" %29[^\n]", search);
+	scanf(" %50[^\n]", search);
 	fread(fieldSearch, sizeof(MUSIC), n, fp);
 	alphabSort(fieldSearch, n);
 	for (int i = 0; i < n; i++) {

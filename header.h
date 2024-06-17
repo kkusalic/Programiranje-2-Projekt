@@ -5,9 +5,9 @@
 
 typedef struct music {
 	unsigned int year;
-	char album[30];
-	char artist[30];
-	char genre[30];
+	char album[51];
+	char artist[51];
+	char genre[51];
 }MUSIC;
 
 
@@ -35,7 +35,7 @@ void add(void);
 void deleteAlbum(void);
 int exitProgram(void);
 void deleteFile(void);
-void alphabSort(MUSIC* field, int n);
+void alphabSort(static MUSIC* field, static int n);
 
 
 
